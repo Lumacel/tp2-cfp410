@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk
+#from tkinter import ttk
 
 class Ventana:
 	ANCHO,ALTO= 300,200
@@ -8,6 +8,7 @@ class Ventana:
 
 		self.root = tk.Tk()
 		self.root.title("Saludo con GUI")
+		self.root.resizable(0, 0)
 		self.root.geometry(f"{Ventana.ANCHO}x{Ventana.ALTO}")
 
 		self.text1= tk.Label(text="Ingrese su nombre: ")
@@ -15,29 +16,27 @@ class Ventana:
 
 		self.nombre= tk.StringVar()
 
-		self.text_input = ttk.Entry(textvariable = self.nombre, width=20)
+		self.text_input = tk.Entry( width=20)
 		self.text_input.place(x=130,y=20)
+		self.text_input.focus_set()
 
-		
 		self.boton = tk.Button(text="saludo",command = self.saludar)
 		self.boton.place(x=20,y=120)
 
-		self.root.mainloop()
-
-	
-
-	def saludar(self):
-		if len (self.text_input.get()) == 0:
-			self.text_saludo = tk.Label(text="Hola amigo")
-		else:
-
-			self.text_saludo = tk.Label(text=f"Hola {self.text_input.get()}")
+		self.text_saludo = tk.Label(textvariable = self.nombre)
 		self.text_saludo.place(x=20,y=70)
 
+		self.root.bind('<Return>', self.saludar)
+		self.root.mainloop()
+
+	def saludar(self, *args):
+		if len (self.text_input.get()) == 0:
+			self.nombre.set("Hola amigazo!")
+		else:
+			self.nombre.set(f"Hola {self.text_input.get()}")
 
 def main():
 	v = Ventana()
-
 
 if __name__ == "__main__":
 	main()	
