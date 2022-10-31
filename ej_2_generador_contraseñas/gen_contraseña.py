@@ -13,6 +13,7 @@ class App:
         self.root = tk.Tk()
         self.root.geometry(f"{App.ANCHO}x{App.ALTO}")
         self.root.title("Generador de contraseña")
+        self.root.resizable(0,0)
 
         self.texto1 = tk.Label(text=f"Longitud contraseña (MAX {App.MAX_LENGHT}):")
         self.texto1.place(x=20,y=20)
@@ -30,9 +31,8 @@ class App:
         self.text_key = tk.Label(textvariable= self.password)
         self.text_key.place(x = 20,y=110)
 
-        self.notific = tk.Label(textvariable= self.notas)
+        self.notific = tk.Label(textvariable= self.notas, fg="blue")
         self.notific.place(x= 20, y = 170)
-
 
         self.root.bind('<Return>', self.generar_contraseña)
 

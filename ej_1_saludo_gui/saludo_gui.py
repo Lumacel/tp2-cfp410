@@ -7,6 +7,8 @@ class Ventana:
 	def __init__(self):
 
 		self.root = tk.Tk()
+		
+
 		self.root.title("Saludo con GUI")
 		self.root.resizable(0, 0)
 		self.root.geometry(f"{Ventana.ANCHO}x{Ventana.ALTO}")
@@ -20,7 +22,7 @@ class Ventana:
 		self.text_input.place(x=130,y=20)
 		self.text_input.focus_set()
 
-		self.boton = tk.Button(text="saludo",command = self.saludar)
+		self.boton = tk.Button(text="saludo",command = self.saludar, relief="groove", borderwidth=4)
 		self.boton.place(x=20,y=120)
 
 		self.text_saludo = tk.Label(textvariable = self.nombre)
