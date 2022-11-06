@@ -15,11 +15,11 @@ class Checkbox(ttk.Checkbutton):
     def checked(self):
         return self.variable.get()
     
-    def check(self):
-        self.variable.set(True)
+    #def check(self):
+    #    self.variable.set(True)
     
-    def uncheck(self):
-        self.variable.set(False)
+    #def uncheck(self):
+    #    self.variable.set(False)
 
 
 class Aplicacion(ttk.Frame):
@@ -32,10 +32,9 @@ class Aplicacion(ttk.Frame):
 
         self.tag_url = ttk.Label(
             parent, text="URL video:")
-
         self.tag_url.place(x=20, y=20)
-        self.input_url = ttk.Entry(parent)
 
+        self.input_url = ttk.Entry(parent)
         self.input_url.place(x=90, y=20, width=280)
 
         self.tag_status = ttk.Label(
@@ -58,7 +57,11 @@ class Aplicacion(ttk.Frame):
     def check_clicked(self):
         print(self.checkbox.checked())
 
+    
+
     def descargar(self):
+        self.tag_status.config(text=f"Descargando...")
+
         try:
             CARPETA = "./"  
             link = self.input_url.get()
@@ -74,12 +77,10 @@ class Aplicacion(ttk.Frame):
 
             d_video.download(CARPETA)
 
-            self.tag_status.config(
-                text=f"DESCARGADO!")
+            self.tag_status.config(text=f"DESCARGADO!")
    
         except:
-            self.tag_status.config(
-            text=f"ERROR!...")
+            self.tag_status.config(text=f"ERROR!...")
 
 
 # Programa
