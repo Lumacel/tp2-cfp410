@@ -59,6 +59,7 @@ class App():
 		return random.randint(1,3)
 
 	def mostrar_jugada(self):
+
 		self.sonido(jugada_sound)
 		self.eleccion_maquina = self.jugada_maquina()
 		self.show_jugador.set(App.opciones[self.get_elecc_jugador()])
@@ -71,7 +72,10 @@ class App():
 		self.puntaje_usuario=0
 
 	def sonido(self,sonido):
-		self.audio = playsound(sonido)
+		try:
+			self.audio = playsound(sonido)
+		except Exception as e:
+			print(f"Error: {e}")
 
 	def espiedra(self):
 		self.eleccion_usuario = 1
