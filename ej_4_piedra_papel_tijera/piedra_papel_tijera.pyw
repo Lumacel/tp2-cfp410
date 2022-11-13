@@ -60,14 +60,14 @@ class App():
 
 	def mostrar_jugada(self):
 
-		self.sonido(jugada_sound)
+		#self.sonido(jugada_sound)
 		self.eleccion_maquina = self.jugada_maquina()
 		self.show_jugador.set(App.opciones[self.get_elecc_jugador()])
 		self.show_maquina.set(App.opciones[self.get_elecc_maquina()])
 
 	def reset(self):
 		self.mostrar_info(f"{self.get_puntos_usuario()} \t          {self.get_puntos_maquina()}")
-		self.sonido(reset_sound)
+		#self.sonido(reset_sound)
 		self.puntaje_maquina=0
 		self.puntaje_usuario=0
 

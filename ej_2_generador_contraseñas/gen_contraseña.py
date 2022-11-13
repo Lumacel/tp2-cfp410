@@ -1,8 +1,6 @@
 import tkinter as tk
 import key_gen
 
-MAX_LENGHT=20
-
 class App:
     ANCHO = 300
     ALTO = 200
